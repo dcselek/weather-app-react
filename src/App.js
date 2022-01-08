@@ -1,5 +1,6 @@
 import './App.css';
 import Dropdown from './components/dropdown/Dropdown';
+import Weather from './components/weather/Weather';
 import SelectedCity from './context/WeatherContext'
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Dropdown />
-      <h2>{city}</h2>
+      <Weather />
     </div>
   );
 }
