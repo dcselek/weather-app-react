@@ -1,14 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import citiesJSON from './cities_of_turkey.json'
 import { useFormik } from 'formik'
+import SelectedCity from '../../context/WeatherContext'
 
 function Dropdown() {
-    const [ cities ] = useState(citiesJSON)
+    const [cities] = useState(citiesJSON)
+    const { setCity } = SelectedCity()
     const { values, handleChange } = useFormik({
         initialValues: {
             "city": "Eskişehir",
         }
     })
+
+    useEffect(() => {
+        setCity(values.city);
+    }, [values.city])
     return (
         <form>
             <select
