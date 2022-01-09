@@ -1,15 +1,18 @@
-import './App.css';
+import styled from 'styled-components';
 import Dropdown from './components/dropdown/Dropdown';
 import Weather from './components/weather/Weather';
-import SelectedCity from './context/WeatherContext'
+
+const AppLayout = styled.div`
+  background-color: #D9FFFB;
+  text-align: center;
+`
 
 function App() {
-  const { city } = SelectedCity()
   return (
-    <div className="App">
+    <AppLayout>
       <Dropdown />
       <Weather />
-    </div>
+    </AppLayout>
   );
 }
 
