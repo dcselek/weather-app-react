@@ -3,8 +3,9 @@ import Dropdown from './components/dropdown/Dropdown';
 import Weather from './components/weather/Weather';
 
 const AppLayout = styled.div`
-  background-color: #D9FFFB;
+  background-color: #1d3557;
   text-align: center;
+  height: 100vh;
 `
 
 function App() {
