@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
+import axios from 'axios';
+
+const key = process.env.REACT_APP_WEATHER_API_KEY
 
 const WeatherContext = React.createContext()
 
 function SelectedCity() {
-    const [city, setCity] = useState("")
+    const [forecast, setForecast] = useState();
     return {
-        city,
-        setCity
+        forecast,
+        async getData(city) {
+            const res = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`)
+            setForecast(res.data)
+        }
     }
 }
 

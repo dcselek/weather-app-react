@@ -5,7 +5,7 @@ import SelectedCity from '../../context/WeatherContext'
 
 function Dropdown() {
     const [cities] = useState(citiesJSON)
-    const { setCity } = SelectedCity()
+    const { getData } = SelectedCity()
     const { values, handleChange } = useFormik({
         initialValues: {
             "city": "Eskişehir",
@@ -13,16 +13,18 @@ function Dropdown() {
     })
 
     useEffect(() => {
-        setCity(values.city);
+        getData(values.city)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [values.city])
     return (
         <form>
             <select
                 onChange={handleChange}
                 name="city"
+                value={values.city}
             >
                 {cities.map((city) => (
-                    <option key={city.id} value={city.name} selected={values.city === city.name}>{city.name}</option>
+                    <option key={city.id} value={city.name}>{city.name}</option>
                 ))}
             </select>
         </form>
